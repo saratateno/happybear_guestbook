@@ -44,6 +44,7 @@ group :test do
   gem 'rubocop'
   gem 'shoulda'
   gem 'faker'
+  gem 'capybara'
 end
 
 group :development do
