@@ -1,0 +1,13 @@
+AllCops:
+  DisabledByDefault: false
+  DisplayCopNames: true
+  DisplayStyleGuide: true
+  Exclude:
+      - 'Rakefile'
+      - 'Gemfile'
+      - 'db/**/*'
+      - 'config/**/*'
+      - 'bin/**/*'
+
+Documentation:
+  Enabled: false
