@@ -7,7 +7,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     if @entry.save
-      flash[:notice] = "Your message was saved. Thank you."
+      flash[:notice] = 'Your message was saved. Thank you.'
       redirect_to entries_path
     else
       @entries = Entry.all
@@ -18,6 +18,6 @@ class EntriesController < ApplicationController
   private
 
   def entry_params
-     params.require(:entry).permit(:name, :message)
+    params.require(:entry).permit(:name, :message)
   end
 end
