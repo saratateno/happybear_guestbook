@@ -7,7 +7,8 @@ feature 'entries' do
   end
 
   context 'when adding a new entry' do
-    scenario 'a successful entry' do
+    scenario 'upon success' do
+      visit '/'
       fill_in('entry[name]', with: 'Joe Bloggs')
       fill_in('entry[message]', with: 'Hello World')
       click_button('Submit')

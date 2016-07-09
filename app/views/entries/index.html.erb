@@ -1,1 +1,19 @@
+<div>
+  <%= form_for @entry do |f| %>
+    <div class="field">
+      <%= f.label :name %>
+      <%= f.text_field :name, placeholder: "Your name", required: true %>
+    </div>
+
+    <div class="field">
+      <%= f.label :message %>
+      <%= f.text_field :message, placeholder: "Your message", required: true %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Submit", class:"button" %>
+    </div>
+  <% end %>
+</div>
+
 No messages yet.
