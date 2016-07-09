@@ -7,6 +7,7 @@ class EntriesController < ApplicationController
   def create
     @entry = Entry.new(entry_params)
     @entry.save
+    flash[:notice] = "Your message was saved. Thank you."
     redirect_to entries_path
   end
 
