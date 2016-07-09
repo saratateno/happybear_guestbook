@@ -16,7 +16,7 @@
   <% end %>
 </div>
 
-No messages yet.
+<%= 'No messages yet.' if @entries.empty? %>
 
 <div>
   <% @entries.each do |entry| %>

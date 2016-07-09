@@ -14,6 +14,7 @@ feature 'entries' do
       click_button('Submit')
       expect(page).to have_content 'Joe Bloggs'
       expect(page).to have_content 'Hello World'
+      expect(page).not_to have_content 'No messages yet'
     end
   end
 end
