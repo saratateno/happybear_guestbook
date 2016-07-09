@@ -17,3 +17,12 @@
 </div>
 
 No messages yet.
+
+<div>
+  <% @entries.each do |entry| %>
+    <div>
+      <%= content_tag(:p, entry.name) %>
+      <%= content_tag(:p, entry.message) %>
+    </div>
+  <% end %>
+</div>
