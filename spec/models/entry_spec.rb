@@ -6,8 +6,7 @@ RSpec.describe Entry, type: :model do
   end
 
   it 'gives an error message if message is not present' do
-    expect(build(:entry, message: nil).errors_on(:message))
-      .to include('is required.')
+    expect(build(:invalid_entry).errors_on(:message)).to include('is required.')
   end
 
   it 'does not save an invalid entry to the database' do

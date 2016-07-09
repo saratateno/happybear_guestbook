@@ -8,7 +8,7 @@ class EntriesController < ApplicationController
     @entry = Entry.new(entry_params)
     if @entry.save
       flash[:notice] = 'Your message was saved. Thank you.'
-      redirect_to entries_path
+      redirect_to root_path
     else
       @entries = Entry.all
       render :index
