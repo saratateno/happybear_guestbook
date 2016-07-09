@@ -6,9 +6,13 @@ class EntriesController < ApplicationController
 
   def create
     @entry = Entry.new(entry_params)
-    @entry.save
-    flash[:notice] = "Your message was saved. Thank you."
-    redirect_to entries_path
+    if @entry.save
+      flash[:notice] = "Your message was saved. Thank you."
+      redirect_to entries_path
+    else
+      @entries = Entry.all
+      render :index
+    end
   end
 
   private
