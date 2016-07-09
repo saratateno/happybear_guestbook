@@ -26,13 +26,20 @@
   <% end %>
 </div>
 
-<%= 'No messages yet.' if @entries.empty? %>
-
-<div>
-  <% @entries.each do |entry| %>
-    <div>
-      <%= content_tag(:p, entry.name) %>
-      <%= content_tag(:p, entry.message) %>
-    </div>
-  <% end %>
-</div>
+<% if @entries.empty? %>
+  <%= 'No messages yet.' %>
+<% else %>
+  <ul>
+    <% @entries.each do |entry| %>
+      <li>
+        <div>
+          <%= content_tag(:strong, entry.name) %>
+          <%= content_tag(:small, "#{time_ago_in_words(entry.created_at)} ago") %>
+        </div>
+        <div>
+          <%= content_tag(:li, entry.message) %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

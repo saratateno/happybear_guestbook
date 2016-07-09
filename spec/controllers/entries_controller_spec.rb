@@ -1,9 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
+  let(:entry) { FactoryGirl.create(:entry) }
+
   before(:all) do
     DatabaseCleaner.start
-    @entry = FactoryGirl.create(:entry)
   end
 
   after(:all) do
@@ -13,7 +14,7 @@ RSpec.describe EntriesController, type: :controller do
   describe 'GET #index' do
     it 'populates an array of entries' do
       get :index
-      expect(assigns(:entries)).to eq([@entry])
+      expect(assigns(:entries)).to eq([entry])
     end
 
     it 'renders the :index view' do
