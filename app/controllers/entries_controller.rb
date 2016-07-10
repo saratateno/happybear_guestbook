@@ -18,6 +18,7 @@ class EntriesController < ApplicationController
   def destroy
     @entry = Entry.find(params[:id])
     @entry.destroy
+    flash[:notice] = 'The message was deleted.'
     redirect_to root_path
   end
 

@@ -11,9 +11,10 @@ feature 'deleting entries' do
     DatabaseCleaner.clean
   end
 
-  scenario 'when deleting' do
+  scenario 'destroys records from the database' do
     entry
     visit '/'
     expect { click_link('delete') }.to change(Entry, :count).by(-1)
+    expect(page).to have_content 'The message was deleted.'
   end
 end
