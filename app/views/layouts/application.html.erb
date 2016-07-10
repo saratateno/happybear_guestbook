@@ -7,8 +7,34 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= alert %>
-  <%= notice %>
-  <%= yield %>
+  <nav class="navbar navbar-default navbar-fixed-top">
+   <div class="container">
+     <div class="navbar-header">
+       <span class="navbar-brand">Happy Bear Guestbook</span>
+     </div>
+   </div>
+  </nav>
+
+  <div class="main container">
+    <% if alert %>
+      <div class="alert alert-danger alert-dismissable text-center" role="alert">
+        <%= alert %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+
+    <% if notice %>
+      <div class="alert alert-success alert-dismissable text-center" role="alert">
+        <%= notice %>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    <% end %>
+
+    <%= yield %>
+  </div>
 </body>
 </html>
