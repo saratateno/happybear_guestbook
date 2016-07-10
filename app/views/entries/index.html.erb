@@ -13,7 +13,7 @@
   </section>
 <% end %>
 
-<div class="row">
+<section class="row">
   <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6 well form-area">
     <div class="col-lg-8 col-lg-offset-2">
       <h3>Thanks for stopping by</h3>
@@ -30,30 +30,32 @@
                                   placeholder: "Tell us your name",
                                   required: true %>
         </div>
-
         <div class="actions">
           <%= f.submit "Submit", class:"btn btn-primary btn-lg btn-block" %>
         </div>
       <% end %>
     </div>
-  </div>
+  </section>
 
-  <div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6">
+  <section class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3 col-lg-6">
     <% if @entries.empty? %>
       <%= content_tag(:p, 'No messages yet.', class:"panel panel-body") %>
     <% else %>
-    <% @entries.each do |entry| %>
-      <li class="panel panel-default">
-        <div class="panel-heading">
-          <%= content_tag(:strong, entry.name) %>
-          <%= content_tag(:small, "#{time_ago_in_words(entry.created_at)} ago") %>
-          <%= link_to "delete", entry_path(entry), method: :delete, data: { confirm: 'Delete this message?' }, class: "pull-right" %>
-        </div>
-        <div class="panel-body">
-          <%= content_tag(:p, entry.message) %>
-        </div>
-      </li>
+      <% @entries.each do |entry| %>
+        <li class="panel panel-default">
+          <div class="panel-heading">
+            <%= content_tag(:strong, entry.name) %>
+            <%= content_tag(:small, "#{time_ago_in_words(entry.created_at)} ago") %>
+            <%= link_to "delete", entry_path(entry),
+                              method: :delete,
+                              data: { confirm: 'Delete this message?' },
+                              class: "pull-right" %>
+          </div>
+          <div class="panel-body">
+            <%= content_tag(:p, entry.message) %>
+          </div>
+        </li>
+      <% end %>
     <% end %>
-  <% end %>
-  </div>
+  </section>
 </div>
