@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   def index
     @entry = Entry.new
-    @entries = Entry.all
+    @entries = Entry.order('created_at').reverse_order
   end
 
   def create
