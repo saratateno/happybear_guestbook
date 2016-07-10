@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'entries' do
+feature 'adding entries' do
   before :each do
     visit '/'
   end

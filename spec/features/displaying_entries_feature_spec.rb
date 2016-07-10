@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'display time' do
+feature 'displaying entries' do
   let(:entry) { create(:entry) }
 
   before :all do

@@ -50,4 +50,15 @@ RSpec.describe EntriesController, type: :controller do
       end
     end
   end
+
+  describe 'DELETE destroy' do
+    it 'deletes the entry' do
+      expect { delete :destroy, id: entry }.to change(Entry, :count).by(-1)
+    end
+
+    it 'redirects to root' do
+      delete :destroy, id: entry
+      expect(response).to redirect_to root_path
+    end
+  end
 end
