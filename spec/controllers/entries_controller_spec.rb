@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
-  let(:entry) { FactoryGirl.create(:entry) }
+  let!(:entry) { FactoryGirl.create(:entry) }
 
   before(:all) do
     DatabaseCleaner.start

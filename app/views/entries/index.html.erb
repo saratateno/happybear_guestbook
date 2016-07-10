@@ -39,6 +39,9 @@
         <div>
           <%= content_tag(:li, entry.message) %>
         </div>
+        <div>
+          <%= link_to "delete", entry_path(entry), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
       </li>
     <% end %>
   </ul>
