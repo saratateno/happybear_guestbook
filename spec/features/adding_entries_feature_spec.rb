@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'entries' do
+feature 'adding entries' do
   before :each do
     visit '/'
   end
@@ -31,7 +31,7 @@ feature 'entries' do
       fill_in('entry[message]', with: 'Hello world')
       click_button('Submit')
       expect(page).to have_content 'Name is required.'
-      expect(page).to have_selector("input[value='Hello world']")
+      expect(page).to have_selector('textarea', text: 'Hello world')
     end
   end
 end

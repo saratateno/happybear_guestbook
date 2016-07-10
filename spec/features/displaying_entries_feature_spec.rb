@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature 'display time' do
+feature 'displaying entries' do
   let(:entry) { create(:entry) }
 
   before :all do
@@ -48,8 +48,10 @@ feature 'display time' do
         @entries[num] = create(:entry)
       end
       visit '/'
-      expect(page.body.index(@entries[2].name)).to be < page.body.index(@entries[1].name)
-      expect(page.body.index(@entries[3].name)).to be < page.body.index(@entries[2].name)
+      expect(page.body.index(@entries[2].name))
+        .to be < page.body.index(@entries[1].name)
+      expect(page.body.index(@entries[3].name))
+        .to be < page.body.index(@entries[2].name)
     end
   end
 end

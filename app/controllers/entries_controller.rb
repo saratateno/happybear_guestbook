@@ -1,7 +1,7 @@
 class EntriesController < ApplicationController
   def index
     @entry = Entry.new
-    @entries = Entry.order('created_at').reverse_order
+    @entries = Entry.all
   end
 
   def create
@@ -13,6 +13,13 @@ class EntriesController < ApplicationController
       @entries = Entry.all
       render :index
     end
+  end
+
+  def destroy
+    @entry = Entry.find(params[:id])
+    @entry.destroy
+    flash[:notice] = 'The message was deleted.'
+    redirect_to root_path
   end
 
   private

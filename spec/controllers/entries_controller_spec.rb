@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe EntriesController, type: :controller do
-  let(:entry) { FactoryGirl.create(:entry) }
+  let!(:entry) { FactoryGirl.create(:entry) }
 
   before(:all) do
     DatabaseCleaner.start
@@ -48,6 +48,17 @@ RSpec.describe EntriesController, type: :controller do
         post :create, entry: FactoryGirl.attributes_for(:invalid_entry)
         expect(response).to render_template :index
       end
+    end
+  end
+
+  describe 'DELETE destroy' do
+    it 'deletes the entry' do
+      expect { delete :destroy, id: entry }.to change(Entry, :count).by(-1)
+    end
+
+    it 'redirects to root' do
+      delete :destroy, id: entry
+      expect(response).to redirect_to root_path
     end
   end
 end
